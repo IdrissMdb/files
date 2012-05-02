@@ -25,7 +25,6 @@
 
 // Do not load FS ...
 $RUNTIME_NOSETUPFS = true;
-require_once('../inc.php');
 
 // only need filesystem apps
 $RUNTIME_APPTYPES=array('filesystem','authentication');
@@ -41,7 +40,7 @@ $publicDir = new OC_Connector_Sabre_Directory('');
 
 // Fire up server
 $server = new Sabre_DAV_Server($publicDir);
-$server->setBaseUri(OC::$APPSWEBROOT.'/apps/files/webdav.php');
+$server->setBaseUri(OC::$WEBROOT.'/remote/webdav.php');
 
 // Load plugins
 $server->addPlugin(new Sabre_DAV_Auth_Plugin($authBackend,'ownCloud'));
