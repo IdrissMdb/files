@@ -32,7 +32,7 @@ set_time_limit(0);
 // Turn off output buffering to prevent memory problems
 \OC_Util::obEnd();
 
-$serverFactory = new \OC\Connector\Sabre\ServerFactory(
+$serverFactory = new \OCA\DAV\Connector\Sabre\ServerFactory(
 	\OC::$server->getConfig(),
 	\OC::$server->getLogger(),
 	\OC::$server->getDatabaseConnection(),
@@ -43,7 +43,7 @@ $serverFactory = new \OC\Connector\Sabre\ServerFactory(
 );
 
 // Backends
-$authBackend = new \OC\Connector\Sabre\Auth();
+$authBackend = new \OCA\DAV\Connector\Sabre\Auth();
 $requestUri = \OC::$server->getRequest()->getRequestUri();
 
 $server = $serverFactory->createServer($baseuri, $requestUri, $authBackend, function() {
